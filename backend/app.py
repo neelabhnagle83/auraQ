@@ -47,6 +47,10 @@ def analyze():
         print(f"❌ ERROR: {str(e)}")  # Log errors in console
         return jsonify({"error": "Internal Server Error"}), 500
 
+# Vercel handler function
+def handler(event, context):
+    """Vercel entrypoint for handling requests."""
+    return app(event, context)
 
 if __name__ == "__main__":
     app.run(debug=True)
