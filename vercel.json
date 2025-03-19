@@ -1,17 +1,15 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "backend/requirements.txt",
+      "src": "backend/run.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "frontend/pages/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/api/.*", "dest": "/backend/run.py" },
-    { "src": "/(.*)", "dest": "/frontend/pages/$1" }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "backend/run.py"
+    }
+  ],
+  "buildCommand": "pip install -r backend/requirements.txt"
 }
