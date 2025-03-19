@@ -8,8 +8,8 @@ from routes.auth import auth_bp  # Importing authentication routes
 app = Flask(__name__)
 
 # Set CORS for specific routes
-CORS(app, resources={r"/auth/*": {"origins": "*"},
-                     r"/analyze": {"origins": "*"}})  # Using * for Vercel deployment
+CORS(app, resources={r"/auth/*": {"origins": "https://aura-q-toa9.vercel.app"},
+                     r"/analyze": {"origins": "https://aura-q-toa9.vercel.app"}})  # Using * for Vercel deployment
 
 bcrypt = Bcrypt(app)
 
