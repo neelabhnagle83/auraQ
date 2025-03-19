@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from routes.auth import auth_bp  # Importing authentication routes
+from app import app  # Import your Flask app instance
 
 app = Flask(__name__)
 
@@ -47,6 +48,10 @@ def analyze():
         print(f"❌ ERROR: {str(e)}")  # Log errors in console
         return jsonify({"error": "Internal Server Error"}), 500
 
+# Vercel handler function
+def handler(event, context):
+    """Vercel entrypoint for handling requests."""
+    return app(event, context)
 
 if __name__ == "__main__":
     app.run(debug=True)
