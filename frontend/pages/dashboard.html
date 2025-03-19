@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinDoq - User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../components/footer.css">
+</head>
+<body>
+    <!-- ✅ Header Section -->
+    <header>
+        <div class="logo"><img src="../assets/logo.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="#">How it works?</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions"> 
+            <button class="reward-btn">
+                Credits: <span id="reward-points">0</span>
+            </button>            
+            <button class="signout-btn" onclick="logout()">Sign Out</button>
+        </div>
+    </header>
+
+    <!-- ✅ Daily Greeting Section -->
+    <section class="greeting">
+        <h2>Welcome back, <span id="username">User</span>!</h2>
+        <p>Hope your day went well! Keep track of your journey.</p>
+        <p2><strong>Today's Date:</strong> <span id="current-date"></span></p2>
+    </section>
+
+
+    <!-- ✅ Main Content -->
+    <main>
+        <h2>Daily Journal Entry</h2>
+        <form id="story-form">
+            <textarea id="story-input" placeholder="Write your daily story..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="mood-display">Mood: --</div>
+        <div id="feedback-display">Feedback: --</div>
+        
+
+        <h3>Weekly Mood Review</h3>
+        <div id="weekly-review">No data yet.</div>
+    </main>
+
+    <!-- ✅ Footer -->
+    <div id="footer"></div>
+    
+    <!-- Load Navbar -->
+    <script>
+        fetch("../components/navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+            });
+    </script>
+
+    <!-- Add main.js before dashboard.js for logout functionality -->
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
