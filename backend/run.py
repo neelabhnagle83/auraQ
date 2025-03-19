@@ -3,6 +3,10 @@ Simple script to run the AuroQ backend server
 """
 import os
 import sys
+<<<<<<< HEAD
+=======
+from app import app  # Import your Flask app instance
+>>>>>>> 4d7d899de3e0a49a88880ba7192d589b8038a20f
 
 def check_dependencies():
     """Check if all required dependencies are installed"""
@@ -38,6 +42,14 @@ def install_dependencies():
     print("Installing dependencies...")
     os.system(f"{sys.executable} -m pip install flask flask-cors flask-bcrypt flask-jwt-extended textblob google-generativeai")
 
+<<<<<<< HEAD
+=======
+# Vercel handler function
+def handler(event, context):
+    """Vercel entrypoint for handling requests."""
+    return app(event, context)
+
+>>>>>>> 4d7d899de3e0a49a88880ba7192d589b8038a20f
 if __name__ == "__main__":
     print("Starting AuroQ Backend Setup")
     

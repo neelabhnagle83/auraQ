@@ -11,14 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../components/navbar.css">
-    <link rel="stylesheet" href="../components/footer.css">
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="./components/navbar.css">
+    <link rel="stylesheet" href="./components/footer.css">
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <body>
 
     <!-- Include Navbar -->
-    <div id="navbar"></div>
+    <div id="navbar">
+        
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -32,19 +34,19 @@
         </div>
 
         <div class="hero-image">
-            <img src="../assets/board with notes.png" alt="Hero Section Image">
+            <img src="./assets/board with notes.png" alt="Hero Section Image">
         </div>
     </section>
 
     <!-- Load Navbar -->
     <script>
-        fetch("../components/navbar.html")
+        fetch("./components/navbar.html")
             .then(response => response.text())
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
             });
 
-        fetch("../components/footer.html")
+        fetch("./components/footer.html")
             .then(response => response.text())
             .then(data => {
                 document.getElementById("footer").innerHTML = data;

@@ -2,16 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/requirements.txt",
-      "use": "@vercel/python"
+      "src": "backend/run.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9", "entrypoint": "handler" }
     },
     {
-      "src": "frontend/pages/**",
+      "src": "frontend/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/api/.*", "dest": "/backend/run.py" },
-    { "src": "/(.*)", "dest": "/frontend/pages/$1" }
+    {
+      "src": "/(.*)",
+      "dest": "backend/run.py"
+    }
   ]
 }
