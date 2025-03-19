@@ -54,3 +54,8 @@ if __name__ == "__main__":
     # Run the Flask app
     print("Starting Flask server...")
     os.system(f"{sys.executable} app.py")
+
+def handler(event, context):
+    from run import app  # Import your existing Flask app
+    return app(event, context)
+
