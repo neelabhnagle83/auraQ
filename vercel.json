@@ -2,18 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/**/*",
-      "use": "@vercel/static"
+      "src": "backend/requirements.txt",
+      "use": "@vercel/python"
     },
     {
-      "src": "backend/run.py",
-      "use": "@vercel/python"
+      "src": "frontend/pages/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/run.py"
-    }
+    { "src": "/api/.*", "dest": "/backend/run.py" },
+    { "src": "/(.*)", "dest": "/frontend/pages/$1" }
   ]
 }
